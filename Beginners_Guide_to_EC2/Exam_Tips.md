@@ -9,9 +9,9 @@
 **G**
 **H**
 ## T
-**General Purpose**
-Burstable, general purpose instance type.
-**Use Case** 
+**General Purpose** .   
+Burstable, general purpose instance type   
+**Use Case** .  
 Websites and web applications, development environments, build servers, code repositories, micro services, test and staging environments, and line of business applications.  </p>
 <p>
  <strong>A - General Purpose</strong>: Deliver significant cost savings and are ideally suited for scale-out and Arm-based workloads that are supported by the extensive Arm ecosystem. </br>
