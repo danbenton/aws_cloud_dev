@@ -9,14 +9,14 @@
 **G**
 **H**
 
-<p>**T** </br>
+**T**
 Burstable, general purpose instance type. </br>
   **Use Case**
   Websites and web applications, development environments, build servers, code repositories, micro services, test and staging environments, and line of business applications.  </p>
 <p>
-**A** </br>
+ <bold>**A** </bold></br>
 Deliver significant cost savings and are ideally suited for scale-out and Arm-based workloads that are supported by the extensive Arm ecosystem. </br>
-  **Use Case**</br>
+  <bold>**Use Case**</bold></br>
   Scale-out workloads such as web servers, containerized microservices, caching fleets, and distributed data stores, as well as development environments.</p>
 **D**
 **R**
