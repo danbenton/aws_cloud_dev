@@ -1,13 +1,19 @@
 ## EC2 101
+
 **EC2 Instance Types**
+
 **F** 
+
 **I**
+
 **G**
 **H**
+
 **T**
 Burstable, general purpose instance type. 
   **Use Case**
   Websites and web applications, development environments, build servers, code repositories, micro services, test and staging environments, and line of business applications.  
+  
 **A** 
 Deliver significant cost savings and are ideally suited for scale-out and Arm-based workloads that are supported by the extensive Arm ecosystem. 
   **Use Case**
