@@ -77,7 +77,7 @@ Ideal for electronic design automation (EDA) and certain relational database wor
 ### EBS     
 **SSD**    
 - General Purpose SSD: Balances price and performance for a wide variety of workloads   
-- Provisioned IOPS SSD: Highest performance SSD volume for mission-critical low-latency or high-throughput workloads    
+- Provisioned IOPS SSD: Highest performance SSD volume for mission-critical low-latency or high-throughput workloads   
 **Magnetic**    
 - Throughput Optimized HHD: Low cost HHD volume designed for frequently accessed, throughput-intensive workloads   
 - Cold HHD - Lowest cost HDD volume designed for less frequently accessed workloads   
