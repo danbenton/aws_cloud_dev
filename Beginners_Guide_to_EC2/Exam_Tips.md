@@ -88,7 +88,8 @@ A load balancer serves as the single point of contact for clients. The load bala
 Three different types of Load Balancers:    
 - Application Load Balancers: Flexible feature set for your web applications running the http or https protocols.  Operates at the request level  
 - Network Load Balancers: Ultra-high performance while maintaining very low latencies.  Operates at the connection level, routing traffice to targets within your VPC; handles millions of requests a second   
-- Classic Load Balancers: Used for applications that were build in the existing EC2 classic env; operates both at the connection and request level   
+- Classic Load Balancers: Used for applications that were build in the existing EC2 classic env; operates both at the connection and request level 
+
 504 Error means the gateway has timed out.  This means the application not responding with the idle time period.  Trouble shoot the application.  Is it the Web Server or Database Server?   
 *If you need the IPv4 address of your end user, look for the X-Forwarded-For header.*        
 # Route 53 Lab   
