@@ -75,10 +75,10 @@ Ideal for electronic design automation (EDA) and certain relational database wor
 - Spot: Enables bidding for instance capacity, providing for even greater savings if your applications have flexible start and end times    
 - Dedicated Hosts: Physical EC2 servers dedicated for your use.  Can reduce costs by allowing you to use your existing sever-bound software licenses  
 ### EBS     
-**SSD**    
+1) **SSD**    
 - General Purpose SSD: Balances price and performance for a wide variety of workloads   
-- Provisioned IOPS SSD: Highest performance SSD volume for mission-critical low-latency or high-throughput workloads   
-**Magnetic**    
+- Provisioned IOPS SSD: Highest performance SSD volume for mission-critical low-latency or high-throughput workloads  
+2) **Magnetic**    
 - Throughput Optimized HHD: Low cost HHD volume designed for frequently accessed, throughput-intensive workloads   
 - Cold HHD - Lowest cost HDD volume designed for less frequently accessed workloads   
 - Magnetic - Previous Generation, can be a boot volume       
