@@ -190,17 +190,17 @@ Read Replica Databases:
 **What is Elasticache**: A web service that makes it easy to deploy, operate and scale in-memory cache in the cloud.  The service improves the performance of web applications by allowing you to retreive information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based DBs.  
 **Used to**: Significantly improve latency and throughput for many read-heavy application workloads (such as social networking, gaming, media sharing and Q&A portals) or compute-intensive workloads (rec engines).   
 Caching improves application performande by storing critical pieces of data in memory for low-latency access.  Cached info may include results of I/O DB queries or results of computationally-intensive calculations.  
-#### Types of Elasticache:   
-##### Memcached   
+## Types of Elasticache:   
+### Memcached   
 Widely adoped memory object caching system.  ElastiCache is protocol compliant with Memecached, so popular tools in use today with existing Memecached envs will work seemlessly with the service. 
-### Notes:  
+#### Notes:  
 Because Memcached is designed as pure caching solution with no persistence, ElastiCache manages Memcached nodes as a pool that can grow or shrink, similar to Amazon EC2 Auto Scaling Group.  Individual nodes are expendable and Elasticache provides additional capabilities here, such as automatic node replacement and Auto Discovery.   
 #### Use Cases
 - If primary goal is object caching, i.e. offload your database
 - If interested in a simple caching model  
 - If you plan in running large cache nodes and require multithreaded performance with utilization of multiople cores  
 - Require the ability to scale and cache horizontally as you grow  
-##### Redis  
+### Redis  
 Popular open-source in-memory key-value store that supports data structures such as sorted sets and lists.  ElasticCache supports Master/Slave replication and Multi-AZ which can be used to achieve cross AZ redundancy.  
 #### Notes:    
 Because of replication and persistence features of Redis, ElastiCach manages Redis more as a relational DB.  Redis ElasticCache clusters are managed as stateful entities that include failover, similar to how Amazon RDS manages database failover.  
@@ -211,8 +211,8 @@ Because of replication and persistence features of Redis, ElastiCach manages Red
 - If you want to run in multiple AWS Availability Zones (Multi-AZ) with failover  
 ## Exam Tips  
 Scenario: a DB is under alot of stress/load.  You may be asked which service you should use to alleviate this.  
- - **Elasticache** is a good choice if the DB is particularly *read-heavy* and not prone to frequent changing.   
- - **Redshift** is a good answer if the reason is your DB is feeling stress becasue management keep running *OLAP transactions* on it. (Data Warehouseing question)   
+ **Elasticache** is a good choice if the DB is particularly *read-heavy* and not prone to frequent changing.   
+ **Redshift** is a good answer if the reason is your DB is feeling stress becasue management keep running *OLAP transactions* on it. (Data Warehouseing question)   
  *Use Memcache if:*  
  - Object caching is your primary goal
  - You want to keep things as simple as possible
