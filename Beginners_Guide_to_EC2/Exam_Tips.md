@@ -108,5 +108,83 @@ No Tips
 - You can change a policy on a role and it will take immediate affect
 - You can attach and detach roles to running EC2 instances without having to stop or terminate these instances   
 # How to Encrypt an EBS Volume Attached to EC2 Lab   
+## Exam Tips  
+- You can encrypt the rood device volume (the volumem the OS is installed on) using Operating System level encryption.   
+- You can encrypt the root device volume by first taking a snapshot of that volume, and then creating a copy of that snap with encryption.  You can then make an AMI of this snap and deploy the encrypted root device volume.   
+- You can encrypt additional attached volumes using the console, CLI or API.    
+# RDS 101  
+### Notes   
+#### Databases
+RMDBS vs. NoSQL  
+Databases vs. Data Warehouse
+#### OLTP vs. OLAP   
+Online Transaction Processing: Frequent but simple transactions   
+Online Analytics PRocessing: More complex with large number of records   
+Data Warehouseing databases use different type of architecture both from a database perspective and infrastructural layer. 
+#### Elasticache  
+Web service that makes it easy to deploy, operate and scale an in-memory cache in the cloud.  The service improves the performace of web applications by allowing you to retrieve information from fast, managed, in-memory caches.    
+**Two open source in-memory caching engines:**   
+1) Memcached
+2) Redis 
+## AWS Database Types - Summary    
+- RDS - OLTP   
+   - SQL  
+   - MySQL   
+   - PostgreSQL   
+   - Oracle   
+   - Aurora   
+   - MariaDB   
+- DynamoDB - NoSQL      
+- RedShift - OLAP  
+- Elasticache - In Memory Caching:    
+   - Memcached   
+   - Redis 
+# RDS Lab
+## Common Exam Question   
+EC2 instance and RDS in two different security groups, they can not interface with one another.  What do you do?
+*Need to open up port 3306 in the RDS security group instance to teh security group where the EC2 instance is located* Allow the two security groups to talk to one another.    
+# RDS - Back Ups, Multi-AZ & Read Replicas  
+#### Back Ups   
+Two types of backups:   
+1) Automated Backups: allow you to recover your database to any point in time within a **retention period**; this can be between one and 35 days.  Automated Backups will take a full daily snapshot and will also store transaction logs throughout the day.  When you do a recovery, AWS will first choose the most recent daily backup and then apply transaction logs relevant to that day.  This allows you to do a point in time recovery down to a second, within the retention period.  
+- Enabled by default  
+- Stored in S3  
+- Free storage space equal to the size of your DB 
+2) Snapshot: done manually.  Stored even after you delete the original RDS instance, unlike automated backups.   
+Restoring backups will result in new RDS instance with new DNS endpoint. 
+#### Multi-AZ  
+***For diaster recovery only, not for improving performance***    
+Allows you to have an exact copy of your production database in another Availability Zone.  AWS handles the replication for you, so when your production database is written to, this write will automatically be synchronized to the standby databse.  
+In the event of planned database maintenance, DB instance falure or an AZ failure, Amazon RDS will automatically failover to the standby so that DB operations can resume quickly without admin intervention.  
+Multi-AZ Databases:   
+- SQL Server  
+- Oracle   
+- MySQL Server  
+- PostgreSQL    
+- MariaDB   
+- Aurora  
+#### Read Replica  (Scaling out)
+5 Read replicas per production DB by default 
+Allow you to have a read-only copy of your production DB.  Achieved by using Asychronous replication from the primary RDS instance to the read replicas.  You use the read replicas primarily for very read-heavy DB workloads.   
+Read Replica Databases:   
+- MySQL Server  
+- PostgreSQL  
+- MariaDB   
+- Aurora  
+##### Notes:   
+- Used for scaling, **not** for disaster recovery!   
+- Must have automatic backups turned on in order to deploy a read replica   
+- You can have up to 5 read replica copies of any database  
+- You can have read replicas of read replicas (but watch out for latency)   
+- Each read replica will have its own DNS end point  
+- You **can** have read replicas that have Multi-AZ  
+- You **can** create read replicas of Multi-AZ source databases  
+- Read replicas can be promoted to be their own databases.  This breaks the replication   
+- You can have a read replica in a second region  
+
+
+
+
+
 
 
