@@ -69,21 +69,19 @@ High compute and high memory foot print - fastest cloud instance.
 Ideal for electronic design automation (EDA) and certain relational database workloads with high per-core licensing costs.
 
 ## Exam Tips 
-#### EC2 Pricing   
+### EC2 Pricing   
 - On Demand: Allows you to pay a fixed rate by hour (or second) with no commitment     
 - Reserved: Provides you with a capacity reservation and offer a siginificant discount on the hourly charge for an instance.  1 Year or 3 Year terms avaiable    
 - Spot: Enables bidding for instance capacity, providing for even greater savings if your applications have flexible start and end times    
 - Dedicated Hosts: Physical EC2 servers dedicated for your use.  Can reduce costs by allowing you to use your existing sever-bound software licenses  
-#### EBS     
+### EBS     
 **SSD**    
 - General Purpose SSD: Balances price and performance for a wide variety of workloads   
-- Provisioned IOPS SSD: Highest performance SSD volume for mission-critical low-latency or high-throughput workloads   
-**Magnetic**  
+- Provisioned IOPS SSD: Highest performance SSD volume for mission-critical low-latency or high-throughput workloads    
+**Magnetic**    
 - Throughput Optimized HHD: Low cost HHD volume designed for frequently accessed, throughput-intensive workloads   
 - Cold HHD - Lowest cost HDD volume designed for less frequently accessed workloads   
-- Magnetic - Previous Generation, can be a boot volume    
-# EC2 Lab    
-No Tips    
+- Magnetic - Previous Generation, can be a boot volume       
 # Elastic Load Balancer   
 ## Exam Tips   
 A load balancer serves as the single point of contact for clients. The load balancer distributes incoming traffic across multiple targets, such as Amazon EC2 instances. This increases the availability of your application. You add one or more listeners to your load balancer.    
