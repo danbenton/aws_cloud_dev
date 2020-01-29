@@ -28,7 +28,7 @@ Types of APIs:
 - REST APIs (**RE**presentational **S**tate **T**ransfer)   
   - Uses JSON     
 - SOAP APIs (**S**imple **O**bject **A**ccess **P**rotocol)    
-  - Uses XML   
+  - Uses XML         
 **Amazon API Gateway** is a fully managed service that makes it easy for developers to publish, maintain, monitor
 and secure APIs at any scale.  With a few clicks in teh AWS Management Console, you can create an API that acts as a 
 "front door" for applications to access data, business logic, or functionality form your back-end services, such as 
