@@ -33,5 +33,74 @@ Types of APIs:
  **Amazon API Gateway** is a fully managed service that makes it easy for developers to publish, maintain, monitor
 and secure APIs at any scale.  With a few clicks in teh AWS Management Console, you can create an API that acts as a 
 "front door" for applications to access data, business logic, or functionality form your back-end services, such as 
-applications running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web application.    
+applications running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web application.     
+### What does API Gateway Do?    
+- Exposes HTTPS endpoints to define a RESTful API    
+- Serverless-ly connect to services like Lambda & DynamoDB  
+- Send each API endpoint to a different target  
+- Run efficiently with low cost     
+- Scale effortlessly  
+- Track and control usage by API key   
+- Throttle requests to prevent attacks  
+- Connect to CloudWatch to log all requests for monitoring   
+- Maintain multiple versions of yoru API   
+### Configure API Gateway  
+- Define an API (container)   
+- Define Resources and nested Resources (URL paths)   
+- For each resource:    
+  - Select supported HTTP methods (verbs)  
+  - Set security   
+  - Choose target (such as EC2, Lambda, DynamoDB, etc.)   
+  - Set request and response transformations    
+- Deploy API to a Stage:  
+  - Uses API Gateway domain, by default   
+  - Can use custom domain   
+  - Now supports AWS Certificate Manager: free SSL/TLS certs!     
+### What is API Caching?  
+With Caching, you can reduce the number of calls made you your endpoint and also imporve the latency of the requests to your API.  When you enable caching for a stage, API Gateway caches responses from your endpoint for a specified time-to-live (TTL) period, in seconds.  API Gateway then reponds to the request by looking up teh endpoint response from the cache instead of making a request to your endpoint.    
+### Same Origin Policy   
+In computing, the **same-origin policy** is an importatn concept in the web application security model.  Under the policy,  a web browser permits scripts contained in a first webpage to access data in a second web page, but only if both web pages have the same origin.   
+
+This is done to prevent *Cross-Site Scripting* (XSS) atttacks.   
+- Enforced by web browsers     
+- Ignored by tools like PostMan and curl    
+### Cross-Origin Resource Sharing (CORS)  
+CORS is the way the server at the other end (not the client code in the browser) can relax the same-origin policy.   
+CORS is a mechanism that allows restricted resources (e.g. fonts on a web page to be requested from aonther domain outside the domain from which the first resource was served.   
+- Browser makes an HTTP OPTIONS call for a URL   
+  - OPTIONS is an HTTP method like GET, PUT and POST  
+- Server returns a response that says: `These other domains are approved to GET this URL`
+- Error - `Origin poliocy cannot be read at the remote resource?`
+  - Need to enable CORS on API Gateway    
+## Examp Tips   
+- Remeber what API Gateway is at a high level   
+- API Gateway has caching capabilities to increase performance   
+- API Gateway is low cost and scales automatically   
+- You can throttle API Gateway to prevent attacks  
+- You can log results to CloudWatch   
+- If you are using JavaScript/AJAX that uses multiple domains with API Gateway, ensure that you enable CORS on API Gateway   
+- CORS is enforced by the client   
+# Version Control With Lambda   
+## Versioning  
+When you use versioning in AWS Lambda, you can publish one or more verions of your Lambda function.  As a result, you can work with different variations of your Lambda function in your development workflow, such as development, beta and production.   
+Each Lambda function version has a unique Amazon Resource Name (ARN).  After you publish a version, it is immutable (that it, it can not be changed).  
+AWS Lambda maintains your latest function code in the $LATEST version.  When you update your function code, AWS Lambda replaces the code in teh $LATEST version of the Lambda function.    
+### Qualified / Unqualified ARNs   
+You can refer to this function using ARN.  There are two ARNS associated with this initial version:    
+- Qualified ARN: The function ARN with teh version suffix.
+  - arn:aws:lambda:aws-region-acct-id:function:helloworld:$LATEST  
+- Unqualified ARN - The function ARN without the version suffix.  
+  - arn:aws:lambda:aws-region:acct-id:function:helloworld   
+### Alias  
+After initially create a Lambda function (the $LATET versin), you can publish a version 1 of it.  By creating an alias named PROD that poins to version 1, you can now use the PROD alias to invoke version 1 of the Lambda funciton.    
+Now, you can update the code (the $LATEST version) with all of your improvements, and then publish another stable and improved version (version 2).  You can promote version 2 to production by remapping the PROD alias so that it points to version 2.  If you find something wrong, you can easily roll back that production version to version 1 by remapping the PROD alias so that it points to version 1.  
+## Exam Tips  
+- Can have multiple version of lambda functions    
+- Latest version will use $LATEST   
+- Qualified verions will use $LATEST, unqualified will not have it   
+- Versions are immutable (can not be changed)   
+- Can split traffic using aliases to different versions   
+- Can not split traffic with $LATEST, instead create an alias to latest
+
+
 
