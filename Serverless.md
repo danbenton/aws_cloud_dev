@@ -101,6 +101,45 @@ Now, you can update the code (the $LATEST version) with all of your improvements
 - Versions are immutable (can not be changed)   
 - Can split traffic using aliases to different versions   
 - Can not split traffic with $LATEST, instead create an alias to latest
+# Step Functions   
+**Step Functions:** 
+- Allows you to visualize and test your serverless applications   
+- Provides a graphical console to arrange and visualize the components of your application as a series of steps.  This makes it simple to bjuild and run multistep applications.   
+- Automatically triggers and trackes each step, and retries when there are errors, so your application executes in order and as expected.   
+- Logs the state of each step, so when things do go wrong, you can diagnose and debug problems quickly. 
+## Exam Tips   
+- Great way to visualize your serverless application   
+- Automatically triggers and tracks each step    
+- Logs the state of each step so if something goes wrong you can track what went wrong and where   
+# AWS X-Ray   
+**AWS X-RAY** is a service that collects data about requests that your application serves, and provides tools you can use to view, filter and gain insights into that data to identify issues and opportunities for optimization.  For any traced request to your application, you can see detailed information not only about the request and response, but also about calls that your application makes to downstream AWS resources, microservices, databases and HTTP web APIs.     
+### X-Ray SDK    
+The X-Ray SDK provides: 
+- Interceptors to add to your code to trace incoming HTTP requests   
+- Client handlers to instrument AWS SDK clients that your application uses to call other AWS services   
+- An HTTP client to use to instrument calls to other internal and external HTTP web services    
+### X-Ray Integration   
+The X-Ray integraes with the following AWS services:    
+- Elastic Load Balancing  
+- AWS Lambda   
+- Amazon API Gateway   
+- Amazon Elastic Cloud Compute   
+- AWS Elastic Beanstalk   
+### X-Ray Languages   
+- Java  
+- Go   
+- Node.js   
+- Python   
+- Ruby   
+- .Net    
+# Advanced API Gateway   
+You can use the **API Gateway Import** API feature to import an API from an external definition file into API Gateway.  Currently, the Import API feature supports **Swagger v2.0** definition files.    
 
-
+With the Import API, you can either create a ne2 APII by submitting an POST request that includes a Swagger definition in the payload and endpoint configurate, or you can update an existing API by using a PUT request that contains a Swagger definition in the payload.  You can update an API by overwriting it with a new definition, or merge a definition with an existing API.  You specifiy the options using a mode query parameter in the requst URL.   
+## API Throttling   
+By default, API Gateway limits the steady-state request rate to **10,000 requests per second** (rps).   
+The maximum concurrent requests is 5000 across all APIs within an AWS account.    
+If you go over 10,000 requests per second or 5000 concurrent requests you will receive a **429 Too Many Requests** error response.   
+## SOAP Webservice Passthrough   
+You can configure API Gateway as a SOAP web service passthrough.    
 
