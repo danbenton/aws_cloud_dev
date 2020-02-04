@@ -8,8 +8,8 @@ The Customer Master Key (CMK):
   - creation data    
   - description     
   - key state (enabled vs. disabled)   
-  - key material (either customer provided or AWS provided)   
-  - **Can NEVER be exported**   
+  - key material (either customer provided or AWS provided)      
+  - **Can NEVER be exported**      
 Setup a Customer Master Key:    
   - Create alias and description   
   - Choose material option...(Default let amazon)    
