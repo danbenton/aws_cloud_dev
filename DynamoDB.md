@@ -151,18 +151,90 @@ In DynamoDB, two types of Indecies are suppord to help speed-up queries:
 - Write intensive applications (DAX is read only)  
 - Applications that do not perform many operations   
 - Applications that do not requre microsecond response times   
-- 
-
-
-  
-  
-
-
-
-
-
-
-
-  
-
-
+# Elasticache   
+In-memory cache in the cloud    
+Improves performance of web applications, allowing you to retrieve information from fast in-memory caches rather than slower disk based databases   
+- Sits between your application and the database   
+  - e.g. an application frequently requesting specific product information for yoru best selling products   
+- Takes the load off your databases     
+- Good if your database is particularly **read-heavy** and the data is no changing frequently     
+### Elasticache Benefits and Use Cases   
+- Improves performande for read-heavy workloads   
+  - e.g. Social Networking, gaming media sharing, Q&A portals    
+- Frequently-accessed data is stored in memory for low-latency access, improving hte overall performance of your application   
+- Also gooe for compute heavy workloads   
+  - e.g. recommendation engines    
+- Can be used to store results of IO intensive database queries or output of compute-intensive calculations    
+### Two Types of Elasticache   
+**Memcached**     
+- Widely adopted memory object caching system   
+- Multi-threaded   
+- No Multi-AZ capability     
+**Redis**   
+- Open-source in-memory key-value store    
+- Supports more complex data structures: sorted sets and lists   
+- Supports Master/Slave replication and Multi-AZ for cross AZ redundancy   
+### Caching Strategies   
+**Lazy Loading**: Loads the data into the cache only when necessary 
+- If requested data is in the cache, Elasticache returns the data to the application   
+- If the data is not in teh cache or has expired, Elasticache returns a `null`   
+- Your application then fetches the data from the database and writes the data received into the cache so that it is avaliable next time   
+#### Advantages   
+- Only requested data is cached: Avoids filling up cache with useless data 
+- Node falures are not fatal, a new empty node will just ahve a lot of cache misses initially   
+#### Disadvantages    
+- Cache miss penalty: 1) Initial request, 2) query to database and then 3) writing of that data to the cache  
+- Stale data - if data is not only updated when there is a cache miss, it can become stale.   Doesn't automatically update if the data in the database changes  
+### Lazy Loading and TTL   
+**TTL(Time to Live)**   
+- Specifics the number of seconds until the key (data) expires to avoid keeping stale data in the cache   
+- Lazy loading treats an expired key as a cache miss and cauxes the application to retrieve the data from the dataxbase and subsequently write the data into the cache with a new TTL       
+- Does not elminiate stale data - but helps to avoid it   
+**Write-Through**: adds or updates data to the cache whenever data is written to the database   
+#### Advantages   
+- Data in the cache is never stale  
+- Users are generally more tolerant of additional latency when updating data than when retrieving it      
+#### Disadvantages    
+- Write penalty: Every write involves a write to teh cache as well as a write to teh database   
+- If a node failes and a new one is spun up, data is missing until added or updated in teh database (mitigated by implementing Lazy Loading in conjunction with write-through)  
+- Wasted resources if most of the data is never read    
+# DynamoDB Transactions   
+- ACID Transactions (Atomic, Consistent, Isolated, Durable)   
+- Read or write multiple items across mutliple tables as an all or nothing application   
+- Check for a pre-requeisite condition before writing to a table    
+# DynamoDB TTL   
+- An attribute defines an expirity time for your data   
+- Expired items marked for deletion   
+- Great for remoging irrelevant or old data:   
+  - Session data  
+  - Event logs   
+  - Temporary data    
+- Reduces cost by automatically removing data which is no longer relevant   
+TTL is expressed in epoch time (time since Jan 1, 1970)    
+# DynamoDB Streams  
+Time-ordered sequence of items level modifactions (insert, udpate, delete)  
+- Logs are encrypted at rest and stored for 24 hours  
+- Can be used for auditing, archiving or trigger events (trigger architectures --> Lambda) 
+- Accessed using a dedicated endpoint   
+- By default the Primary Key is recorded    
+- Before and After images can be captured    
+### Processing DynamoDB Streams   
+- Events are recorded in near real-time   
+- Applications can take actions based on contents   
+- Event source for Lambda  
+- Lambda polls the DynamoDB stream  
+- Executes Lambda code based on a DynamoDB Streams event    
+# Provisioned Throughput Erros & Exponential Backoff  
+**ProvisionedThroughputExceededException** 
+- Might see this if your request rate is too high for the read/write capacity provisioned on your DynamoDB table   
+- SDK automatically retries the requests until successful  
+- If you are not using the SDK you can:   
+  - Reduce request frequency   
+  - Use **Exponential Backoff**   
+### What is Exponential Backoff 
+- Many components in a network can generate errors due to being overloaded   
+- In addition to simple retries all AWS SDKs use **Exponential Backoff**   
+- Progressively longer waits between consecutive retries, e.g. 50 ms, 100 ms, 200 ms... for improved flow control   
+- If after 1 minute this doesn't work, your request size may be exceededing the throughput for your read/write capacity   
+## Exam Tips   
+Exponential backoff is not true just for DynamoDB - it is a feature of **every** AWS SDK and applies to many services within AWS, e.g. S3 Buckets, CloudFormation, SES, etc.    
