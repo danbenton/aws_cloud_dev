@@ -140,9 +140,9 @@ The appsec.yml file must be placed in the **root of the directory of your revisi
 - **AWS CodeBuild** is a fully managed build service which runs a set of commands that you define - e.g. compiles code, runs tests and produces artifacts thatr are ready to deploy     
 ## Summary and Exam Tips     
 - Docker commands to build, tag (applies an alias) and push your Docker image to the ECR repo     
-  Build: `docker build -t {name_of_image_repo}`
-  Tag: `docker tag {name_of_image_repo}:latext ...`
-  Push: `docker push .../{name_of_image_repo}:latest`
+  Build: `docker build -t {name_of_image_repo}`    
+  Tag: `docker tag {name_of_image_repo}:latext ...`     
+  Push: `docker push .../{name_of_image_repo}:latest`     
 - Use buildspec.yml to define the build commands and settings used by CodeBuild to run your build     
 - You can override the settings in buildspec.yml by adding your own commands in the console when you launch the build     
 - If youre build fails, check the build logs in the CodeBuild console and you can also view the full CodeBuild log in CloudWatch     
@@ -178,14 +178,16 @@ The appsec.yml file must be placed in the **root of the directory of your revisi
 - Simplified syntax for defining serverless resources: APIs, Lambda Functions, DynamoDB Tables, etc     
 - Use the SAM CLI to package your deployment code, upload it to S3 and deploy your serverless application     
 ### SAM CLI Commands     
-`sam package`
+`sam package`   
   - input = yml template      
   - output = sam compatable template     
-  - uploads deployment pkg to specified S3 bucket     
-`sam deploy`    
+  - uploads deployment pkg to specified S3 bucket        
+  
+`sam deploy`      
   - input = sam template
   - specifies name of stack     
-  - capabilities parameter --> IAM role
+  - capabilities parameter --> IAM role .  
+  
 ## Exam Tips     
 - SAM == Serverless Application Model 
 - Allows you to define and provision serverless applications using CloudFormation      
