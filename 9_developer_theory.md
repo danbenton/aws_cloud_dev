@@ -8,11 +8,11 @@
 - Multiple developers working on different features or bugs fixes      
 - All contributing to the same application       
 - Sharing the same code repo (e.g. git)      
-- Frequently pushing their updates into the shared repo - at least daily       
+- Frequently pushing their updates into the shared repo - at least daily    
 **2: Build Management System**
 - Code repo integrated with a build mgmt system      
 - Code changes trigger an automated build      
-- We need a way to ensure that any code changes does not break the build or introduce new bugs into the application      
+- We need a way to ensure that any code changes does not break the build or introduce new bugs into the application     
 **3: Test Framework**      
 - The test system runs automated tests on the newly built application       
 - Identifies any bugs, preventing issues from being introduced in the master code      
