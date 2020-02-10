@@ -67,7 +67,7 @@
       - Code released to production by simply switching all traffic to new servers
     - Switching back to the original env is faster and more reliable and is just a case of routing the traffic back to the original servers (as long as you haven't already terminated them)         
 ### AWS CodeDeploy Terminology     
-**Deployment Group** - A set of EC2 instances or Lambda functions to which a new revision of the software is to be deployed     
+**Deployment Group** - A set of EC2 instances or Lambda functions to which a new revision of the software is to be deployed   
 **Deployment** - The process and components used to apply a new revision     
 **Deployment Configuration** - A set of deploiyment rules as well as success / failure conditions used during a deployment     
 **AppSepc File** - Defines the deployment actions you want AWS CodeDeploy to execute     
@@ -80,11 +80,11 @@ Two types of deployment approaches:
 - **Blue / Green** - New instances are provisioned and the new application is deployed to these new instances.  Traffic is routed to the new instances according to your own schedule.  Supported for EC2, on-premise systems and Lambda functions.   Roll back is easy, just route the traffic back to the original instances.
   - *Blue* is the active deployment     
   - *Green* is the new release     
-# CodePipeline 101 Hi, I don't have a kit for you you would need to take one of our projects as a starter which I do not have access to right now, i would say around 2 weeks to get started with the stack by the time you request vitalize id, siteminder id and so on for a basic project
-**AWS CodePipeline** is a fully managed CI/CD service.  Hi, I don't have a kit for you you would need to take one of our projects as a starter which I do not have access to right now, i would say around 2 weeks to get started with the stack by the time you request vitalize id, siteminder id and so on for a basic project
-CodePipeline can orchestrate the build, test and deployment of your appliction every time there is a change to your code - all based on a user devinded software release process.   Hi, I don't have a kit for you you would need to take one of our projects as a starter which I do not have access to right now, i would say around 2 weeks to get started with the stack by the time you request vitalize id, siteminder id and so on for a basic project
-Traditional, manual approaches to code delivery can be slow and prone to errors, whereas an automated process allows developers to grequently release new features and bug fixes in a fast and reliable way.   Hi, I don't have a kit for you you would need to take one of our projects as a starter which I do not have access to right now, i would say around 2 weeks to get started with the stack by the time you request vitalize id, siteminder id and so on for a basic project
-### Simple WorkflowHi, I don't have a kit for you you would need to take one of our projects as a starter which I do not have access to right now, i would say around 2 weeks to get started with the stack by the time you request vitalize id, siteminder id and so on for a basic project
+# CodePipeline 101 
+**AWS CodePipeline** is a fully managed CI/CD service.   
+CodePipeline can orchestrate the build, test and deployment of your appliction every time there is a change to your code - all based on a user devinded software release process.     
+Traditional, manual approaches to code delivery can be slow and prone to errors, whereas an automated process allows developers to grequently release new features and bug fixes in a fast and reliable way.   
+### Simple Workflow     
 CodePipeline allows you to model your release process as a workfow or pipeline made up of different tasks, such as the simple workflow represented below:   
 
 `code update -> build --> test --> deploy`     
