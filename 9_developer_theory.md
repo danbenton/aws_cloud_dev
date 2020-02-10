@@ -1,5 +1,5 @@
 # What is CI/CD?      
-**Continuous Integration & Continuous Delivery/Deployment      
+**Continuous Integration & Continuous Delivery/Deployment**      
 - CI & CD are Best Practices for software development and deployment      
 - They enable frequent software changes to be applied whilst maintaining system and service stability      
 - Companies like AWS, Netflix, Google and Facebook have pioneered this approach to release code, successfully applying thousands of changes per day      
