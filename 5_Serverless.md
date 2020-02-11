@@ -104,8 +104,8 @@ Now, you can update the code (the $LATEST version) with all of your improvements
 # Step Functions   
 **Step Functions:** 
 - Allows you to visualize and test your serverless applications   
-- Provides a graphical console to arrange and visualize the components of your application as a series of steps.  This makes it simple to bjuild and run multistep applications.   
-- Automatically triggers and trackes each step, and retries when there are errors, so your application executes in order and as expected.   
+- Provides a graphical console to arrange and visualize the components of your application as a series of steps.  This makes it simple to build and run multistep applications.   
+- Automatically triggers and tracks each step, and retries when there are errors, so your application executes in order and as expected.   
 - Logs the state of each step, so when things do go wrong, you can diagnose and debug problems quickly. 
 ## Exam Tips   
 - Great way to visualize your serverless application   
